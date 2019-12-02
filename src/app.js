@@ -24,14 +24,51 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      // 'pages/home/index',
+      // 'pages/classify/index',
+      // 'pages/cart/index',
+      // 'pages/my/index',
+      'pages/login/index',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
-    }
+    },
+    // tabBar: {
+    //   list: [
+    //     {
+    //       pagePath: 'pages/index/index',
+    //       text: '首页',
+    //       iconPath: './assets/images/home.png',
+    //       selectedIconPath: './assets/images/home-active.png',
+    //     },
+    //     {
+    //       pagePath: 'pages/classify/index',
+    //       text: '分类',
+    //       iconPath: './assets/images/classify.png',
+    //       selectedIconPath: './assets/images/classify-active.png',
+    //     },
+    //     {
+    //       pagePath: 'pages/cart/index',
+    //       text: '购物车',
+    //       iconPath: './assets/images/cart.png',
+    //       selectedIconPath: './assets/images/cart-active.png',
+    //     },
+    //     {
+    //       pagePath: 'pages/my/index',
+    //       text: '我的',
+    //       iconPath: './assets/images/user.png',
+    //       selectedIconPath: './assets/images/user-active.png',
+    //     },
+    //   ],
+    //   color: '#b4b4b4',
+    //   selectedColor: '#f66c04',
+    //   backgroundColor: '#fff',
+    //   borderStyle: 'white',
+    // },
   }
 
   componentDidShow () {}

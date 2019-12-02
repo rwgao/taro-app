@@ -1,49 +1,73 @@
 import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
-import { View, Button, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { View, Text, Swiper, SwiperItem, Image } from '@tarojs/components'
+import { AtTabBar } from 'taro-ui'
+import Home from '../home/index'
+import Classify from '../classify/index'
+import Cart from '../cart/index'
+import My from '../my/index'
 import './index.scss';
 
 class Index extends Component {
-  constructor () {
+  constructor() {
     super(...arguments)
-    this.state = {
-      title: '首页',
-    }
   }
 
-  componentWillMount () {}
+  componentWillMount() {
+    const { dispatch } = this.props;
+    dispatch({ type: 'home/getNoticeList', payload: { category: 1 } })
+    dispatch({ type: 'home/getItemList', payload: { ids: [26845, 33185, 29616, 44746, 43741, 39510].toString() } })
+  }
 
-  componentDidMount () {}
+  componentDidMount() { }
 
-  componentWillUpdate (nextProps, nextState) {}
+  componentWillUpdate(nextProps, nextState) { }
 
-  componentDidUpdate (prevProps, prevState) {}
+  componentDidUpdate(prevProps, prevState) { }
 
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     return true
   }
 
-  add = (e) => {
-    // dosth
+  handleClick = (value) => {
     const { dispatch } = this.props;
-    dispatch({ type: 'index/add', payload: Math.random() })
+    dispatch({
+      type: 'index/save',
+      payload: {
+        current: value
+      }
+    })
   }
 
-  render () {
-    const { list } = this.props;
+  render() {
+    const { current } = this.props;
+    let content = null;
+    if (current === 0) {
+      content = <Home />;
+    } else if (current === 1) {
+      content = <Classify />;
+    } else if (current === 2) {
+      content = <Cart />;
+    } else if (current === 3) {
+      content = <My />;
+    }
     return (
       <View className='index'>
-        <View className='title'>{this.state.title}</View>
         <View className='content'>
-          {list.map(item => {
-            return (
-              <View key={item} className='item'><Text>{item}</Text></View>
-            )
-          })}
-          <Button className='add' onClick={this.add}>添加</Button>
-          <AtButton>添加</AtButton>
+          {content}
         </View>
+        <AtTabBar
+          color='#b4b4b4'
+          selectedColor='#f66c04'
+          tabList={[
+            { title: '首页', iconType: 'home' },
+            { title: '分类', iconType: 'bullet-list' },
+            { title: '购物车', iconType: 'shopping-cart' },
+            { title: '我的', iconType: 'user', text: '100', max: '99' }
+          ]}
+          onClick={this.handleClick}
+          current={current}
+        />
       </View>
     )
   }

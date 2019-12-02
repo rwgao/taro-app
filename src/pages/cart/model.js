@@ -2,7 +2,7 @@ import { setStorage } from '@tarojs/taro';
 import * as loginOutService from './service';
 
 export default {
-  namespace: 'index',
+  namespace: 'cart',
   state: {
     list: [],
     current: 0,

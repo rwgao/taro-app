@@ -1,1 +1,10 @@
-@import "~taro-ui/dist/style/components/button.scss"; // 引入所需的组件样式 - 方式三
+.index {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .content {
+    flex: 1;
+    height: 1px;
+    overflow: auto;
+  }
+}

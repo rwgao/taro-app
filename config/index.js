@@ -88,7 +88,20 @@ const config = {
             namingPattern: 'module', // 转换模式，取值为 global/module
             generateScopedName: '[name]__[local]___[hash:base64:5]'
           }
-        }
+        },
+        pxtransform: {
+          enable: true,
+          config: {
+            onePxTransform: false,
+            unitPrecision: 5,
+            propList: ['*'],
+            selectorBlackList: [],
+            replace: true,
+            mediaQuery: false,
+            minPixelValue: 0,
+            selectorBlackList: ['body']
+          }
+        },
       }
     }
   }
