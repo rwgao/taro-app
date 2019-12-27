@@ -1,0 +1,26 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid #fafafa;
+  padding: 10px 0 20px 0;
+  .item {
+    width: 96px;
+    .iconWrap {
+        width: 96px;
+        height: 96px;
+        border-radius: 48px;
+        overflow: hidden;
+        background-color: #fd3c2d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .text {
+      height: 54px;
+      line-height: 54px;
+      font-size: 24px;
+      text-align: center;
+    }
+  }
+}

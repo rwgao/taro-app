@@ -5,6 +5,8 @@ import dva from './utils/dva'
 import models from './models'
 import Index from './pages/index'
 import './app.scss'
+/* app.js */
+import './custom-variables.scss'
 
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -24,11 +26,12 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index',
       // 'pages/home/index',
       // 'pages/classify/index',
       // 'pages/cart/index',
       // 'pages/my/index',
+      'pages/recommend/index',
+      'pages/index/index',
       'pages/login/index',
     ],
     window: {

@@ -9,6 +9,11 @@ let registered
 
 function createApp(opt) {
   opt.onAction = [createLogger()]
+  opt.onError = function (e) {
+    // 配置dva中redux-saga 在其他相应状态抛出异常错误时中断程序
+    e.preventDefault();
+    console.error(e.message);
+  }
   app = create(opt)
   app.use(createLoading({}))
 

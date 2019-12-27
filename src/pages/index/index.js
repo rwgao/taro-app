@@ -56,18 +56,6 @@ class Index extends Component {
         <View className='content'>
           {content}
         </View>
-        <AtTabBar
-          color='#b4b4b4'
-          selectedColor='#f66c04'
-          tabList={[
-            { title: '首页', iconType: 'home' },
-            { title: '分类', iconType: 'bullet-list' },
-            { title: '购物车', iconType: 'shopping-cart' },
-            { title: '我的', iconType: 'user', text: '100', max: '99' }
-          ]}
-          onClick={this.handleClick}
-          current={current}
-        />
       </View>
     )
   }

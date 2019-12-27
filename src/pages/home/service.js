@@ -1,14 +1,13 @@
-import Request from '../../utils/request'
+import Request from '@/utils/request'
 
-function noticeList(data) {
-  return Request ({ url: '/design/article/list', method: 'GET', data: data })
+export function getHomeBanner(data) {
+  return Request ({ url: '/banner', method: 'GET', data: data })
 }
 
-function itemList(data) {
-  return Request ({ url: '/show/items', method: 'get', data: data })
+export function getRecommendResource(data) {
+  return Request ({ url: '/recommend/resource', method: 'GET', data: data })
 }
 
-export default {
-  noticeList,
-  itemList
+export function getRecommendSongs(data) {
+  return Request ({ url: '/recommend/songs', method: 'get', data: data })
 }

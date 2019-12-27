@@ -10,5 +10,5 @@ export function logout(data) {
 
 export default {
   login,
-  logout
+  logout,
 }

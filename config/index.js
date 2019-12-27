@@ -1,36 +1,45 @@
+const path = require('path');
+
 const config = {
-  projectName: 'myTaroApp',
-  date: '2019-11-25',
+  projectName: "myTaroApp",
+  date: "2019-11-25",
   designWidth: 750,
   deviceRatio: {
-    '640': 2.34 / 2,
-    '750': 1,
-    '828': 1.81 / 2
+    "640": 2.34 / 2,
+    "750": 1,
+    "828": 1.81 / 2
   },
-  sourceRoot: 'src',
-  outputRoot: 'dist',
+  sourceRoot: "src",
+  outputRoot: "dist",
   plugins: {
     babel: {
       sourceMap: true,
       presets: [
-        ['env', {
-          modules: false
-        }]
+        [
+          "env",
+          {
+            modules: false
+          }
+        ]
       ],
       plugins: [
-        'transform-decorators-legacy',
-        'transform-class-properties',
-        'transform-object-rest-spread'
+        "transform-decorators-legacy",
+        "transform-class-properties",
+        "transform-object-rest-spread"
       ]
     }
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
+  },
+  alias: {
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@/pages': path.resolve(__dirname, '..', 'src/pages'),
+    '@/package': path.resolve(__dirname, '..', 'package.json'),
+    '@/project': path.resolve(__dirname, '..', 'project.config.json'),
   },
   weapp: {
     module: {
@@ -38,18 +47,12 @@ const config = {
         autoprefixer: {
           enable: true,
           config: {
-            browsers: [
-              'last 3 versions',
-              'Android >= 4.1',
-              'ios >= 8'
-            ]
+            browsers: ["last 3 versions", "Android >= 4.1", "ios >= 8"]
           }
         },
         pxtransform: {
           enable: true,
-          config: {
-
-          }
+          config: {}
         },
         url: {
           enable: true,
@@ -58,35 +61,31 @@ const config = {
           }
         },
         cssModules: {
-          enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+          enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
           config: {
-            namingPattern: 'module', // 转换模式，取值为 global/module
-            generateScopedName: '[name]__[local]___[hash:base64:5]'
+            namingPattern: "module", // 转换模式，取值为 global/module
+            generateScopedName: "[name]__[local]___[hash:base64:5]"
           }
         }
       }
     }
   },
   h5: {
-    publicPath: '/',
-    staticDirectory: 'static',
+    publicPath: "/",
+    staticDirectory: "static",
     module: {
       postcss: {
         autoprefixer: {
           enable: true,
           config: {
-            browsers: [
-              'last 3 versions',
-              'Android >= 4.1',
-              'ios >= 8'
-            ]
+            browsers: ["last 3 versions", "Android >= 4.1", "ios >= 8"]
           }
         },
         cssModules: {
-          enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+          enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
           config: {
-            namingPattern: 'module', // 转换模式，取值为 global/module
-            generateScopedName: '[name]__[local]___[hash:base64:5]'
+            namingPattern: "module", // 转换模式，取值为 global/module
+            generateScopedName: "[name]__[local]___[hash:base64:5]"
           }
         },
         pxtransform: {
@@ -94,22 +93,22 @@ const config = {
           config: {
             onePxTransform: false,
             unitPrecision: 5,
-            propList: ['*'],
+            propList: ["*"],
             selectorBlackList: [],
             replace: true,
             mediaQuery: false,
             minPixelValue: 0,
-            selectorBlackList: ['body']
+            selectorBlackList: ["body"]
           }
-        },
+        }
       }
     }
   }
-}
+};
 
-module.exports = function (merge) {
-  if (process.env.NODE_ENV === 'development') {
-    return merge({}, config, require('./dev'))
+module.exports = function(merge) {
+  if (process.env.NODE_ENV === "development") {
+    return merge({}, config, require("./dev"));
   }
-  return merge({}, config, require('./prod'))
-}
+  return merge({}, config, require("./prod"));
+};

@@ -1,0 +1,50 @@
+.item {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: row;
+
+  .thumbnail {
+    width: 110px;
+    height: 110px;
+    padding: 0 14px;
+
+    .pic {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .content {
+    width: 1px;
+    padding: 0 14px;
+    flex: 1;
+
+    .names {
+      font-size: 34px;
+      color: #303030;
+      height: 64px;
+      line-height: 64px;
+
+      .subName {
+        color: #a9a9a9;
+      }
+    }
+
+    .desc {
+      font-size: 28px;
+      color: #a9a9a9;
+      height: 46px;
+      line-height: 46px;
+    }
+  }
+
+  .player {
+    width: 114px;
+    text-align: center;
+  }
+
+  .more {
+    width: 72px;
+    text-align: center;
+  }
+}

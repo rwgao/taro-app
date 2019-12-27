@@ -27,7 +27,7 @@ export default {
     * add({ payload }, { put, select }) {
       const { list } = yield select(s => s.index)
       yield put({ type: 'save', payload: { list: [ ...list, payload ] } })
-    }
+    },
   },
 
   reducers: {

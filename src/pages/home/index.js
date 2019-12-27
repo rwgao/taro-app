@@ -1,20 +1,20 @@
 import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
-import { View, Swiper, SwiperItem } from '@tarojs/components'
-import { AtForm, AtInput, AtButton, AtTabBar } from 'taro-ui'
+import { View } from '@tarojs/components'
 import Branner from './components/branner'
-import NoticeSwiper from './components/notice'
-import Hot from './components/hot'
-import './index.scss';
+import Classify from './components/classify'
+import Recommend from './components/recommend'
+import News from './components/news'
+import styles from './index.module.scss';
 
 class Home extends Component {
   render() {
-    const { noticeList, itemList } = this.props;
     return (
-      <View className='home'>
+      <View className={styles.home}>
         <Branner />
-        <NoticeSwiper data={noticeList} />
-        <Hot data={itemList} />
+        <Classify />
+        <Recommend />
+        <News />
       </View>
     )
   }
